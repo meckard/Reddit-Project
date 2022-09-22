@@ -1,14 +1,15 @@
 import React from 'react';
 import './App.css';
-import GetSubredditPosts from './features/RedditJSON/redditJson';
-
-
+import { BrowserRouter as Router } from 'react-router-dom'
+import Header from './features/Header/Header';
 //git push -u origin main
 
 function App() {
   return (
       <div className='app'>
-        <GetSubredditPosts/>
+        <Router>
+          <Header />
+        </Router>
       </div>
   )
 }

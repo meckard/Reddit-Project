@@ -1,3 +1,8 @@
+:root{
+  --background-green: #008000;
+  --accent-red: #aa0606;
+}
+
 .App {
   text-align: center;
 }

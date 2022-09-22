@@ -1,7 +1,9 @@
-import { configureStore } from '@reduxjs/toolkit';
-
+import { combineReducers, configureStore } from '@reduxjs/toolkit';
+import  redditReducer  from '../features/RedditJSON/redditSlice'
 
 export const store = configureStore({
-  reducer: {
-  },
+  reducer: combineReducers({
+    reddit: redditReducer,
+
+  }),
 });

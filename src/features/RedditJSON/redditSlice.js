@@ -1,5 +1,5 @@
 import { createSlice, createAsyncThunk, createSelector } from "@reduxjs/toolkit";
-import GetSubredditPosts from "./redditJson";
+import GetSubredditPosts, { getPostComments } from "./redditJson";
 
 
 

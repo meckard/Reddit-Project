@@ -1,0 +1,28 @@
+.header {
+    background-color: var(--background-green);
+    color: white;
+    text-align: center;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header input {
+    height: 25px;
+    width: 200px;
+    margin-right: 30px;
+    background-color: var(--background-green);
+    border-color: var(--accent-red);
+    border-width: 3px;
+    border-radius: 20px;
+    border-style: solid;
+}
+
+::placeholder {
+    color: var(--accent-red)
+}
+
+.header h1 {
+    margin-left: 30px;
+}
+
