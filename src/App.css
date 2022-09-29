@@ -1,10 +1,13 @@
 :root{
   --background-green: #008000;
   --accent-red: #aa0606;
+  --light-green: rgb(137, 224, 132);
+  background-color: #b2bb09;
 }
 
 .App {
   text-align: center;
+  background-color: #818708;
 }
 
 .App-logo {

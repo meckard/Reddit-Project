@@ -11,7 +11,7 @@ export const redditSlice = createSlice({
         error: false,
         isLoading: false,
         searchTerm: '',
-        selectedSubreddit: '/popular'
+        selectedSubreddit: '/hot'
     } ,
     reducers: {
         setPosts(state, action) {
@@ -65,14 +65,14 @@ export const fetchPosts = (subreddit) => async (dispatch) => {
         dispatch(startGetPosts())
         let posts = await GetSubredditPosts(subreddit)
 
-        const postsWithMetaData = posts.map((post) => ({
+        const postsWithMetadata = posts.map((post) => ({
             ...post,
             showingComments: false,
             comments: [],
             loadingComments: false,
             errorComments: false
         }))
-        dispatch(getPostsSuccess(postsWithMetaData))
+        dispatch(getPostsSuccess(postsWithMetadata))
     } catch (error) {
         dispatch(getPostsFailed())
     }
@@ -89,18 +89,19 @@ export const fetchComments = (index, permalink) => async (dispatch) => {
 }
 
 const selectPosts = (state) => state.reddit.posts
-const selectSerchTerm = (state) => state.reddit.searchTerm
+const selectSearchTerm = (state) => state.reddit.searchTerm
 export const selectSelectedSubreddit = (state) => state.reddit.selectedSubreddit
 
 export const selectFilteredPosts = createSelector(
-    [selectPosts, selectSelectedSubreddit],
+    [selectPosts, selectSearchTerm],
     (posts, searchTerm) => {
         if (searchTerm !== '') {
-            return posts.filter((post) => posts.title.toLowerCase().includes(searchTerm.toLowerCase()))
+            return posts.filter((post) => post.title.toLowerCase().includes(searchTerm.toLowerCase()))
         }
         return posts
     }
 )
+
 
 export const {
     setPosts,
