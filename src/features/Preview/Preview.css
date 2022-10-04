@@ -5,7 +5,11 @@
     margin: 10px;
     height: auto;
     padding: 10px;
-    
+    box-shadow: 3px 3px 3px var(--background-green);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border-radius: 10px;
 }
 
 .post-header{
@@ -65,8 +69,9 @@ a.author{
 
 img {
    padding: 5px;
-   border: 2px solid var(--accent-red);
    margin: 10px;
+   height: auto;
+   width: auto;
 }
 
 .sub-auth {
@@ -74,3 +79,22 @@ img {
     flex-direction: column;
     justify-content: space-between;
 }
+
+.post-footer {
+    display:flex;
+    justify-content: space-between;
+    background-color: var(--background-green);
+    color: white;
+    font-weight: bold;
+    align-items: center;
+    border-radius: 5px;
+}
+
+.votes {
+    width: 15%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 10px;
+}
+

@@ -1,8 +1,9 @@
 import GetSubredditPosts from "../RedditJSON/redditJson";
-import { fetchPosts, selectFilteredPosts } from "../RedditJSON/redditSlice";
+import { fetchPosts, selectFilteredPosts, fetchComments } from "../RedditJSON/redditSlice";
 import { useDispatch, useSelector } from 'react-redux'
 import { useEffect } from "react";
 import Preview from "../Preview/Preview";
+import Post from "../Post/Post";
 
 const Home = () => {
     const reddit = useSelector((state) => state.reddit)
@@ -14,6 +15,14 @@ const Home = () => {
         dispatch(fetchPosts(selectedSubreddit))
     }, [dispatch, selectedSubreddit])
 
+    const onToggleComments = (index) => {
+        const getComments = (permalink) => {
+          dispatch(fetchComments(index, permalink));
+        };
+    
+        return getComments;
+      };
+
     return (
         <>
         <div>
@@ -22,6 +31,7 @@ const Home = () => {
                key={post.id}
                post={post}
                index={index}
+               onToggleComments={onToggleComments(index)}
                />
             ))}
         </div>
