@@ -67,12 +67,30 @@ export const fetchPosts = (subreddit) => async (dispatch) => {
 
         const postsWithMetadata = posts.map((post) => ({
             ...post,
-            showingComments: false,
+            showingComments: true,
             comments: [],
             loadingComments: false,
             errorComments: false
         }))
         dispatch(getPostsSuccess(postsWithMetadata))
+    } catch (error) {
+        dispatch(getPostsFailed())
+    }
+}
+
+export const fetchPost = (permalink) => async (dispatch) => {
+    try{
+        dispatch(startGetPosts())
+        let post = await getPostComments(permalink)
+
+        const postWithMetadata = post.map ((single) => ({
+            ...single,
+            showingComments: true,
+            comments: [],
+            loadingComments: false,
+            errorComments: false
+        }))
+        dispatch(getPostsSuccess(postWithMetadata))
     } catch (error) {
         dispatch(getPostsFailed())
     }

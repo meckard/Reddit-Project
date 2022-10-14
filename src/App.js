@@ -4,6 +4,8 @@ import { BrowserRouter as Router, Route } from 'react-router-dom'
 import Header from './features/Header/Header';
 import Home from './features/Home/Home';
 import Post from './features/Post/Post';
+import Pages from './features/Pages/Pages';
+import IndividualPost  from './features/IndividualPost/individualPost';
 //git push -u origin main
 
 function App() {
@@ -14,8 +16,8 @@ function App() {
           <Route exact path='/'>
             <Home />
           </Route>
-          <Route>
-            <Post post='/:permalink'/>
+          <Route path='/individualPost'>
+            <IndividualPost/>
           </Route>
         </Router>
       </div>
