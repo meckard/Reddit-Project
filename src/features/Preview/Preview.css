@@ -37,6 +37,7 @@
 .sub-name {
     margin: 15px 0 20px 5px;
     font-weight: bold;
+    height: 40px;
 }
 
 .sub-name a {
@@ -78,6 +79,7 @@ img {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    height: 50px;
 }
 
 .post-footer {
@@ -96,5 +98,10 @@ img {
     flex-direction: row;
     justify-content: space-between;
     padding: 10px;
+}
+
+.post-text {
+    color: var(--background-green);
+    font-weight: bold;
 }
 

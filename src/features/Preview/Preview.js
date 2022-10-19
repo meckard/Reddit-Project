@@ -8,6 +8,7 @@ import { Route } from 'react-router-dom'
 import Post from '../Post/Post'
 import { useDispatch } from 'react-redux'
 import { changeActivePostId } from '../IndividualPost/IndividualPostSlice'
+import { changeSubreddit } from '../RedditJSON/redditSlice'
 
 const Preview = (props) => {
     const { post } = props
@@ -21,8 +22,9 @@ const Preview = (props) => {
             </div>
             <div className='post-body'>
                 <div className='sub-auth'>
-                    <p className="sub-name"><a href={subredditLink}>{post.subreddit_name_prefixed}</a></p>
+                    <p className="sub-name"><Link to='/subreddit' onClick={() => dispatch(changeSubreddit(`/${post.subreddit_name_prefixed}`))}>{post.subreddit_name_prefixed}</Link></p>
                 </div>
+                <p className='post-text'>{post.selftext}</p>
                 <img src={post.thumbnail} alt=""/>
                 <div className='comments'>{post.comments.map((comment) => {
                    return <Comment comment={comment} key={comment.id} />

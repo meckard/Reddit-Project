@@ -8,6 +8,14 @@
     border-bottom: 5px solid var(--accent-red)
 }
 
+.header a {
+    color: white;
+}
+
+.header a:hover {
+    color: var(--accent-red)
+}
+
 .header input {
     height: 25px;
     width: 200px;

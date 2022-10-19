@@ -106,6 +106,14 @@ export const fetchComments = (index, permalink) => async (dispatch) => {
     }
 }
 
+export const changeSubreddit = (sub) => async (dispatch) => {
+    try{
+        dispatch(setSelectedSubreddit(sub))
+    } catch (error) {
+        dispatch(getPostsFailed())
+    }
+}
+
 const selectPosts = (state) => state.reddit.posts
 const selectSearchTerm = (state) => state.reddit.searchTerm
 export const selectSelectedSubreddit = (state) => state.reddit.selectedSubreddit
